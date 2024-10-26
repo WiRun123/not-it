@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WiRun</title> 
+    <link rel="stylesheet" href="poeStyle.css"> <!--press TAB after writing "link"-->
+</head>
+
+ 
+  <nav class="navB">
+  <ul>
+    <li> <a href="poeAboutUs.html"> About Us</a></li>
+    <li> <a href="poeEvents.html"> Events</a></li>
+    <li> <a href="poeTips.html"> Running Tips</a></li>
+    <li> <a href="poeContact.html"> Contact Us</a></li>
+  </ul> 
+  </nav>
+
+  <div id="containor">
+    <div id="image-containor">
+  <img src="running-2423617_1280.png " alt="" width="290" height="290" id="home-image">
+    </div>
+
+  <div id="text-containor">
+    <div id="home-div">
+  <div id="home-h1">WiRun</div>
+  <div id="home-slogan">It's better together</div>
+  </div>
+  <div id="countdown-timer"></div>
+  </div>
+ </div>
+ <body id="home-body">
+
+  <script>
+    // Marathon dates
+    const marathonDates = [
+    new Date('2024-11-09T00:00:00'),//9 november 
+    new Date('2024-11-17T00:00:00'),//11 november 
+    new Date('2024-12-08T00:00:00')//12 december 
+    ];
+
+    function getNextMarathonDate() {
+    const now = new Date();
+    return marathonDates.find(date => date > now) || null;
+}
+
+function updateCountdown() {
+const nextMarathon = getNextMarathonDate();
+const countdownElement = document.getElementById('countdown-timer');
+
+if (nextMarathon) {
+const now = new Date();
+const timeD = nextMarathon - now;
+
+const days = Math.floor(timeD / (1000 * 60 * 60 * 24));
+const hours = Math.floor((timeD % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+const minutes = Math.floor((timeD % (1000 * 60 * 60)) / (1000 * 60));
+const seconds = Math.floor((timeD % (1000 * 60)) / 1000);
+
+countdownElement.innerHTML = '<h2>The Next Marathon Is In:</h2>' +
+   '<p>' + days + ' days : ' + hours + ' hours : ' + minutes + ' minutes : ' + seconds + ' seconds : </p>';
+
+
+} else {
+countdownElement.innerHTML = "<h2>No More Upcoming  Marathons In 2024!</h2>"; }
+}
+
+// Update countdown every second
+setInterval(updateCountdown, 1000);
+updateCountdown(); // display immediately
+</script>
+
+
+
+   <h4  id="home-h3">Join the run. Join the Community.</h4>
+   <p id="home-h2">
+    At WiRun, we believe that running is more than a sport-its a life style. 
+    Join our monthly marathons to elevate your fitness, enhance your health, and connect with a community of like-minded individuals.<br>
+     Whether you're a beginner or a compatative athlete, WiRun offers a supportive and motivating environment for everyone. <br></p>
+    <p id="home-h2"><u id="home-p">What We Offer:<br></u>
+    <b id="home-h3">Inclusive Events:</b> From 5k for beginners to 50k Ultra marathons, our events cater to runners of all levels, from fitness enthusiasts to 
+    competitive athletes.<br> 
+    <b id="home-h3">A Safe Space:</b> Run confidently in a secure environment aided by medical professionals, pass makers, security guards and many more staff 
+    workers to support your run, <br>alongside a community of runners that will motivate you to keep running.
+    Free bottled water and electrolyte drinks will also be offered.<br> 
+    <strong id="home-h3">Benefits:</strong> Running with WiRun improves your cardiovascular health, helps with weight management, strengthens bone density, and 
+    supports both mental and physical well-being.<br></p> 
+    <p id="home-h2">Why WiRun? <br>Joining WiRun not only transforms your life but also empowers our mission. By participating, you help raise funds
+    that allow us to give back to the community  through charitable initiatives. <br></p> 
+    <h4 id="home-h4">Run with purpose. Run with WiRun.</h4>  
+   </p>
+   
+   <footer>
+    <p>Image credits to: <a href="https://pixabay.com/service/license-summary/" target="_blank" alt="" id="home-credit">
+        pixabay.com </a> </p> 
+  </footer>
+</body>
+<style>
+  
+</style>
+</html>
